@@ -8,20 +8,20 @@ const Navbar = () => {
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
       {/* Upper Navbar */}
       <div className="bg-secondary/40 py-2">
-        <div className="container flex justify-between items-center">
-          <div>
+        <div className="container flex justify-between items-center sm:!px-4 md:!px-12">
+          <div className="shrink-0">
             <a href="#" className="font-bold text-2xl sm:text:3xl flex gap-2">
               <img src={Logo} alt="Logo" className="w-10" />
               Shopsy
             </a>
           </div>
           {/* Search bar*/}
-          <div className="mr-2 flex items-center gap-4 sm:mr-4">
-            <div className="relative group hidden sm:block">
+          <div className="mr-2 flex shrink-0 items-center gap-4 sm:mr-4">
+            <div className="relative group hidden shrink-0 sm:block">
               <input
                 type="text"
                 placeholder="search"
-                className="w-50 sm:w-50 group-hover:w-75 transition-all duration-300 rounded-full border border-gray-300 bg-white px-2 py-1 text-sm font-medium focus:outline-none focus:border focus:border-secondary placeholder:text-gray-400"
+                className="w-50 sm:w-50 group-hover:w-75 transition-all duration-300 rounded-full border border-gray-300 bg-white px-2 py-1 text-sm font-medium text-gray-900 focus:outline-none focus:border focus:border-secondary placeholder:text-gray-400"
               ></input>
               <IoMdSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" />
             </div>
@@ -38,14 +38,10 @@ const Navbar = () => {
                 </span>
                 <FaCartShopping className="shrink-0 text-xl text-white drop-shadow-sm" />
               </button>
-              {/* Dark mode switch */}
             </div>
+            <DarkMode />
           </div>
         </div>
-      </div>
-      {/* Lower Navbar */}
-      <div>
-        <DarkMode />
       </div>
     </div>
   );

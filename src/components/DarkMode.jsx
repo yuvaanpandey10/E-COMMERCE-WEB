@@ -1,5 +1,11 @@
+import LightPng from "../../assets/website/light-mode-button.png";
+
 const DarkMode = () => {
-  return <div></div>;
+  return (
+    <div>
+      <img src="{LightPing}"></img>
+    </div>
+  );
 };
 
 export default DarkMode;

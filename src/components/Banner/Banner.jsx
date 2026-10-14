@@ -21,7 +21,10 @@ const Banner = () => {
             <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-bold">
               Winter Sale upto 50% off
             </h1>
-            <p data-aos="fade-up" className="text-gray-500 text-sm sm:text-base tracking-wide leading-5">
+            <p
+              data-aos="fade-up"
+              className="text-gray-500 text-sm sm:text-base tracking-wide leading-5"
+            >
               Don't miss out on our biggest discounts of the season. <br />
               Shop your favorite winter essentials before they are gone!
             </p>

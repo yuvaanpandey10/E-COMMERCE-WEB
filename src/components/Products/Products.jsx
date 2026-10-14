@@ -2,6 +2,7 @@ import Img1 from "../../assets/women/women.png";
 import Img2 from "../../assets/women/women2.jpg";
 import Img3 from "../../assets/women/women3.jpg";
 import Img4 from "../../assets/women/women4.jpg";
+import Img5 from "../../assets/women/women2.jpg";
 import { FaStar } from "react-icons/fa6";
 
 const ProductsData = [
@@ -37,7 +38,7 @@ const ProductsData = [
     author: "Yellow",
     aosDelay: "800",
   },
-  {
+    {
     id: 5,
     img: Img5,
     title: "Fashion T-shirt",
@@ -53,10 +54,10 @@ const Products = () => {
       <div className="container">
         {/* Header section */}
         <div className="text-center mb-10 max-w-150 mx-auto">
-          <p className="text-sm text-secondary">Top Selling Products for you</p>
-          <h1 className="text-3xl font-bold">Products</h1>
-          <p className="text-xs text-gray-400">
-            Discover our most popular products
+          <p data-aos="fade-up" className="text-sm text-secondary">Top Selling Products for you</p>
+          <h1 data-aos="fade-up" className="text-3xl font-bold">Top Selling Products</h1>
+          <p data-aos="fade-up" className="text-xs text-gray-400">
+            Discover our most popular products and shop the top-rated items our community loves most
           </p>
         </div>
         {/* Body section */}

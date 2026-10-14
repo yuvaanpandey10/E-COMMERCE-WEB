@@ -52,14 +52,14 @@ const Hero = () => {
       <div className="container pb-8 sm:pb-0">
         <Slider {...settings}>
           {ImageList.map((data) => (
-            <div key={data.id}>
+            <div key={data.id} className="overflow-hidden">
               <div className="grid grid-cols-1 sm:grid-cols-2">
                 {/* text content section */}
                 <div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10">
-                  <h1 className="text-5xl sm:text-6xl font-bold my-4 lg:text-7xl">
+                  <h1 className="text-5xl sm:text-4.4xl font-bold my-4 lg:text-7xl select-none">
                     {data.title}
                   </h1>
-                  <p className="text-sm">{data.description}</p>
+                  <p className="text-sm select-none">{data.description}</p>
                   <button className="w-fit mx-auto sm:mx-0 bg-linear-to-r from-secondary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
                     Order Now
                   </button>
@@ -70,7 +70,7 @@ const Hero = () => {
                     <img
                       src={data.img}
                       alt="Hero"
-                      className="relative z-10 w-75 h-75 sm:w-112.5 sm:h-112.5 object-contain mx-auto sm:origin-left sm:scale-125 lg:scale-120"
+                      className="relative z-10 w-64 h-64 sm:w-90 sm:h-90 max-w-full object-contain mx-auto"
                       style={
                         data.id === 1 || data.id === 3
                           ? {

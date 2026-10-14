@@ -31,9 +31,9 @@ const Subscribe = () => {
             <button
               data-aos="fade-up"
               type="button"
-              className="rounded-md bg-white px-6 py-3 font-semibold text-primary transition-colors hover:bg-gray-100"
+              className="rounded-md bg-white px-6 py-3 font-semibold text-primary transition-colors hover:bg-gray-100 cursor-pointer"
             >
-              Subscribe
+              Notify
             </button>
           </div>
         </div>

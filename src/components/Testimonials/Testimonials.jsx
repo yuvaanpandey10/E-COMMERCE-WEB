@@ -1,36 +1,40 @@
-import slider from "react-slick";
+import SliderModule from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const Slider = SliderModule.default || SliderModule;
 
 const TestimonialsData = [
   {
     id: 1,
     name: "Victor",
     text: "Ordered a printed t-shirt and a pair of goggles. Both arrived in two days and the fabric quality is much better than I expected for the price.",
-    img: "https://i.pravatar.cc/150?img=12",
+    img: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
     id: 2,
     name: "Priya Sharma",
     text: "The ethnic collection is gorgeous. The colours look exactly like the photos, and the fit was perfect on the first try.",
-    img: "https://i.pravatar.cc/150?img=47",
+    img: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
     id: 3,
     name: "Daniel Carter",
     text: "Easy to browse, simple checkout, and support answered my size question within minutes. I've already placed a second order.",
-    img: "https://i.pravatar.cc/150?img=33",
+    img: "https://randomuser.me/api/portraits/men/75.jpg",
   },
   {
     id: 4,
     name: "Aisha Rahman",
     text: "Bought a western dress for a weekend trip and got compliments all day. Delivery was fast and the packaging was neat.",
-    img: "https://i.pravatar.cc/150?img=5",
+    img: "https://randomuser.me/api/portraits/women/68.jpg",
   },
 ];
 
 const Testimonials = () => {
   var settings = {
     dots: true,
-    arrow: false,
+    arrows: false,
     infinite: true,
     speed: 500,
     slidesToScroll: 1,
@@ -84,11 +88,26 @@ const Testimonials = () => {
         </div>
         {/* Testimonials cards */}
         <div>
-          <slider {...settings}>
+          <Slider {...settings}>
             {TestimonialsData.map((data) => (
-              <div></div>
+              <div
+                key={data.id}
+                className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl"
+              >
+                <div>
+                  <img
+                    src={data.img}
+                    alt=""
+                    className="rounded-full w-20 h-20"
+                  ></img>
+                </div>
+                <div>
+                  <p>{data.text}</p>
+                  <h1>{data.name}</h1>
+                </div>
+              </div>
             ))}
-          </slider>
+          </Slider>
         </div>
       </div>
     </div>

@@ -56,17 +56,37 @@ const Hero = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2">
                 {/* text content section */}
                 <div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10">
-                  <h1 className="text-5xl sm:text-4.4xl font-bold my-4 lg:text-7xl select-none">
+                  <h1
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="500"
+                    className="text-5xl sm:text-4.4xl font-bold my-4 lg:text-7xl select-none"
+                  >
                     {data.title}
                   </h1>
-                  <p className="text-sm select-none">{data.description}</p>
+                  <p
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="100"
+                    className="text-sm select-none"
+                  >
+                    {data.description}
+                  </p>
+                  <div data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="300">
                   <button className="w-fit mx-auto sm:mx-0 bg-linear-to-r from-secondary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
                     Order Now
                   </button>
+                  </div>
                 </div>
                 {/* Image section */}
                 <div className="order-1 sm:order-2">
-                  <div className="relative z-10">
+                  <div
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    className="relative z-10"
+                  >
                     <img
                       src={data.img}
                       alt="Hero"

@@ -70,7 +70,17 @@ const Hero = () => {
                     <img
                       src={data.img}
                       alt="Hero"
-                      className="w-75 h-75 sm:w-112.5 sm:h-112.5 lg:scale-120 object-contain mx-auto sm:scale-125"
+                      className="relative z-10 w-75 h-75 sm:w-112.5 sm:h-112.5 object-contain mx-auto sm:origin-left sm:scale-125 lg:scale-120"
+                      style={
+                        data.id === 1 || data.id === 3
+                          ? {
+                              maskImage:
+                                "linear-gradient(to bottom, black 84%, transparent 100%)",
+                              WebkitMaskImage:
+                                "linear-gradient(to bottom, black 84%, transparent 100%)",
+                            }
+                          : undefined
+                      }
                     />
                   </div>
                 </div>

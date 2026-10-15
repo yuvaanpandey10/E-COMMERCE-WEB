@@ -84,17 +84,17 @@ const Testimonials = () => {
         </div>
         {/* Testimonials cards */}
         <div data-aos="zoom-in">
-          <Slider {...settings} className="pb-10">
+          <Slider {...settings} className="pb-10 testimonial-slider">
             {TestimonialsData.map((data) => (
               // outer padding keeps the shadow from being clipped
-              <div key={data.id} className="px-3 py-4">
-                <div className="flex flex-col items-center text-center gap-4 min-h-75 shadow-lg hover:shadow-xl transition-shadow duration-300 py-8 px-6 rounded-xl dark:bg-gray-800 bg-secondary/10 relative overflow-hidden">
+              <div key={data.id} className="px-3 py-4 h-full">
+                <div className="flex flex-col items-start text-left gap-4 h-full shadow-lg hover:shadow-xl transition-shadow duration-300 py-8 px-6 rounded-xl dark:bg-gray-800 bg-secondary/10 relative overflow-hidden">
                   <img
                     src={data.img}
                     alt={data.name}
                     className="rounded-full w-20 h-20 object-cover ring-4 ring-primary/20"
                   />
-                  <p className="text-xs text-gray-500 dark:text-gray-300 leading-relaxed flex-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-300 leading-relaxed flex-1 line-clamp-4">
                     “{data.text}”
                   </p>
                   <h1 className="text-xl font-bold text-black/80 dark:text-white">

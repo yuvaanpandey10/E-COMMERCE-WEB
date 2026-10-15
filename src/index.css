@@ -10,3 +10,16 @@
 .container {
   @apply container mx-auto px-4 sm:px-12;
 }
+
+.testimonial-slider .slick-track {
+  display: flex;
+}
+
+.testimonial-slider .slick-slide {
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.testimonial-slider .slick-slide > div {
+  height: 100%;
+}

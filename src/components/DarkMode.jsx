@@ -2,20 +2,11 @@ import { useEffect, useState } from "react";
 import LightButton from "../assets/website/light-mode-button.png";
 import DarkButton from "../assets/website/dark-mode-button.png";
 
-const getInitialTheme = () => {
-  try {
-    const saved = localStorage.getItem("theme");
-    if (saved) return saved;
-  } catch { /* ignore */ }
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-};
-
 const DarkMode = () => {
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
-    try { localStorage.setItem("theme", theme); } catch { /* ignore */ }
   }, [theme]);
 
   return (

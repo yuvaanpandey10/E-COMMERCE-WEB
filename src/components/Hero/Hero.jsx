@@ -9,16 +9,16 @@ const ImageList = [
   {
     id: 1,
     img: Image1,
-    title: "Explore Men's Wear",
+    title: "Explore Women's Wear",
     description:
-      "Browse a sample men's wear collection. This demo does not process purchases.",
+      "Discover sample women's styles in this storefront demo.",
   },
   {
     id: 2,
     img: Image2,
-    title: "Explore Women's Wear",
+    title: "Explore Men's Wear",
     description:
-      "Discover sample women's styles in this storefront demo.",
+      "Browse a sample men's wear collection. This demo does not process purchases.",
   },
   {
     id: 3,

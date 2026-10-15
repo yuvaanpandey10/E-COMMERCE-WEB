@@ -16,7 +16,7 @@ const App = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
 
   const handleOrderPopup = () => {
-    setOrderPopup(!orderPopup);
+    setOrderPopup(true);
   };
 
   useEffect(() => {
@@ -31,10 +31,10 @@ const App = () => {
   }, []);
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-      <Navbar handleOrderPopup={handleOrderPopup}/>
-      <Hero />
+      <Navbar handleOrderPopup={handleOrderPopup} />
+      <Hero handleOrderPopup={handleOrderPopup} />
       <Products />
-      <TopProducts />
+      <TopProducts handleOrderPopup={handleOrderPopup} />
       <Banner />
       <Subscribe />
       <Products2 />

@@ -29,7 +29,7 @@ const ImageList = [
   },
 ];
 
-const Hero = () => {
+const Hero = ({ handleOrderPopup }) => {
   var settings = {
     dots: false,
     arrows: false,
@@ -75,7 +75,10 @@ const Hero = () => {
                   <div data-aos="fade-up"
                     data-aos-once="true"
                     data-aos-duration="300">
-                  <button className="w-fit mx-auto sm:mx-0 bg-linear-to-r from-secondary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
+                  <button
+                    onClick={handleOrderPopup}
+                    className="w-fit mx-auto sm:mx-0 bg-linear-to-r from-secondary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
+                  >
                     Order Now
                   </button>
                   </div>

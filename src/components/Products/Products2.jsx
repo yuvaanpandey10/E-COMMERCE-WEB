@@ -72,7 +72,7 @@ const Products2 = () => {
               <div
                 className={`aspect-square overflow-hidden rounded-md ${
                   data.isCutout
-                    ? "bg-gradient-to-br from-rose-300 via-pink-400 to-fuchsia-500"
+                    ? "bg-linear-to-br from-rose-300 via-pink-400 to-fuchsia-500"
                     : ""
                 }`}
               >

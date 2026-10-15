@@ -3,13 +3,13 @@ import { Link, useParams } from "react-router";
 import NotFound from "./NotFound";
 
 const pages = {
-  about: { title: "About Us", body: "Shopsy is your destination for trendy fashion and everyday essentials. Replace this text with your story." },
-  contact: { title: "Contact Us", body: "Email support@shopsy.com or call +1 (212) 555-0134. We reply within one business day." },
-  blog: { title: "Blog", body: "Style guides and news are coming soon." },
-  shipping: { title: "Shipping & Returns", body: "Add your delivery times, shipping costs and return policy here." },
-  faq: { title: "FAQs", body: "Add your frequently asked questions here." },
-  privacy: { title: "Privacy Policy", body: "Add your privacy policy here." },
-  terms: { title: "Terms & Conditions", body: "Add your terms and conditions here." },
+  about: { title: "About Us", body: "Shopsy is a fashion and lifestyle storefront demo. Product listings are examples; this site does not currently sell or ship products." },
+  contact: { title: "Contact Us", body: "Customer-support contact details are not configured for this demo. Orders and payments are not available." },
+  blog: { title: "Blog", body: "There are no blog posts yet. Check back later for style guides and news." },
+  shipping: { title: "Shipping & Returns", body: "This demo does not accept orders, so no shipping or returns are currently available." },
+  faq: { title: "FAQs", body: "Can I place an order? No. Checkout and payment are not connected. Can I create an account? You can create a demo profile, which is stored only in this browser." },
+  privacy: { title: "Privacy Policy", body: "This demo stores your theme preference and, if you create a demo profile, your name and email in your browser’s local storage. Guest status is stored for the current browser session. This information is not sent to a server. No password is requested or stored. Newsletter signups and orders are not collected." },
+  terms: { title: "Terms & Conditions", body: "This website is a demonstration storefront only. Product listings are examples, and the site does not accept orders, payments, or account registrations on a server." },
 };
 
 const InfoPage = () => {

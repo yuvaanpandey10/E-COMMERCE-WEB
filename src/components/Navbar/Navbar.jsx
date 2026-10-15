@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import Logo from "../../assets/logo.png";
 import { IoMdSearch } from "react-icons/io";
 import { FaCaretDown, FaCartShopping, FaBars, FaXmark } from "react-icons/fa6";
@@ -25,11 +25,21 @@ const navCls = ({ isActive }) =>
 
 const Navbar = ({ handleOrderPopup, user, onSignupClick, onLogout }) => {
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const submitSearch = (event) => {
+    event.preventDefault();
+    const query = search.trim();
+    navigate(`/category/all${query ? `?q=${encodeURIComponent(query)}` : ""}`);
+    setOpen(false);
+  };
 
   const authButton = user ? (
     <div className="flex items-center gap-2 text-sm">
       <span className="max-w-24 truncate font-medium">Hi, {user.name.split(" ")[0]}</span>
       <button
+        type="button"
         onClick={onLogout}
         className="rounded-full border border-gray-400 px-3 py-1 hover:border-secondary hover:text-secondary"
       >
@@ -38,10 +48,11 @@ const Navbar = ({ handleOrderPopup, user, onSignupClick, onLogout }) => {
     </div>
   ) : (
     <button
+      type="button"
       onClick={onSignupClick}
       className="rounded-full bg-secondary px-4 py-1 text-sm font-medium text-white duration-200 hover:scale-105"
     >
-      Sign Up
+      Create Profile
     </button>
   );
 
@@ -56,15 +67,19 @@ const Navbar = ({ handleOrderPopup, user, onSignupClick, onLogout }) => {
           </Link>
 
           <div className="flex shrink-0 items-center gap-3 sm:gap-4">
-            <div className="group relative hidden sm:block">
+            <form onSubmit={submitSearch} className="group relative hidden sm:block">
               <input
                 type="text"
                 placeholder="Search"
                 aria-label="Search products"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
                 className="w-44 rounded-full border border-gray-300 bg-white px-3 py-1 text-sm text-gray-900 transition-all duration-300 placeholder:text-gray-400 focus:w-64 focus:border-secondary focus:outline-none group-hover:w-64 dark:border-gray-500 dark:bg-gray-800 dark:text-white"
               />
-              <IoMdSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" />
-            </div>
+              <button type="submit" aria-label="Search" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+                <IoMdSearch />
+              </button>
+            </form>
 
             <div className="group relative h-8 w-10 shrink-0 transition-all duration-300 hover:w-28">
               <button
@@ -131,15 +146,19 @@ const Navbar = ({ handleOrderPopup, user, onSignupClick, onLogout }) => {
       {/* Mobile menu */}
       {open && (
         <nav className="border-t border-gray-200 px-4 py-4 dark:border-gray-700 sm:hidden" aria-label="Mobile">
-          <div className="relative mb-3">
+          <form onSubmit={submitSearch} className="relative mb-3">
             <input
               type="text"
               placeholder="Search"
               aria-label="Search products"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
               className="w-full rounded-full border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-secondary focus:outline-none dark:border-gray-500 dark:bg-gray-800 dark:text-white"
             />
-            <IoMdSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" />
-          </div>
+            <button type="submit" aria-label="Search" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+              <IoMdSearch />
+            </button>
+          </form>
           <ul className="flex flex-col">
             {[...Menu, ...DropdownLinks].map((d) => (
               <li key={d.link}>

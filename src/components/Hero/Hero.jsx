@@ -9,23 +9,23 @@ const ImageList = [
   {
     id: 1,
     img: Image1,
-    title: "Upto 50% off on all Men's Wear",
+    title: "Explore Men's Wear",
     description:
-      "Shop the latest trends in men's fashion and enjoy up to 50% off on a wide range of clothing and accessories.",
+      "Browse a sample men's wear collection. This demo does not process purchases.",
   },
   {
     id: 2,
     img: Image2,
-    title: "30% off on all women's Wear",
+    title: "Explore Women's Wear",
     description:
-      "Don't miss out on our flash sale! Get 30% off on selected women's wear for a limited time only.",
+      "Discover sample women's styles in this storefront demo.",
   },
   {
     id: 3,
     img: Image3,
-    title: "50% off on all Products sales",
+    title: "Explore Product Collections",
     description:
-      "Enjoy free shipping on all orders over $50. Shop now and save on your next purchase.",
+      "Preview sample product categories. Orders, delivery, and payments are not available.",
   },
 ];
 

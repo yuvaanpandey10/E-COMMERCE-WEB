@@ -1,14 +1,6 @@
 import { Link } from "react-router";
 import Banner from "../../assets/website/footer-pattern.jpg";
 import FooterLogo from "../../assets/logo.png";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaLocationArrow,
-  FaMobileAlt,
-  FaEnvelope,
-} from "react-icons/fa";
 
 const BannerImg = {
   backgroundColor: "#111",
@@ -31,13 +23,6 @@ const CustomerLinks = [
   { title: "FAQs", link: "/page/faq" },
   { title: "Privacy Policy", link: "/page/privacy" },
   { title: "Terms & Conditions", link: "/page/terms" },
-];
-
-// Replace with your real profile URLs
-const SocialLinks = [
-  { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/" },
-  { name: "Facebook", icon: FaFacebook, link: "https://www.facebook.com/" },
-  { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/" },
 ];
 
 const headingClass = "text-xl lg:text-2xl font-bold mb-3 text-left";
@@ -73,59 +58,22 @@ const Footer = () => {
               Shopsy
             </h1>
             <p className="text-gray-200 max-w-md">
-              Your ultimate destination for trendy fashion, everyday essentials,
-              and premium lifestyle products. Enjoy seamless shopping with fast
-              shipping and secure checkout.
+              Explore sample fashion and lifestyle listings in this storefront
+              demo. Shopping and checkout are not connected.
             </p>
           </div>
 
-          {/* Links + social */}
+          {/* Store and customer links */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:col-span-2 lg:col-span-3 lg:pl-10">
             <LinkColumn title="Important Links" links={FooterLinks} />
             <LinkColumn title="Customer Care" links={CustomerLinks} />
 
-            {/* Social + contact */}
+            {/* Demo information */}
             <div className="py-6 px-4 min-w-0 col-span-2 sm:col-span-1">
-              <h2 className={headingClass}>Follow Us</h2>
-              <div className="flex items-center gap-3">
-                {SocialLinks.map(({ name, icon: Icon, link }) => (
-                  <a
-                    key={name}
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={name}
-                    className="hover:text-secondary hover:-translate-y-1 duration-300"
-                  >
-                    <Icon className="text-3xl" />
-                  </a>
-                ))}
-              </div>
-
-              <div className="mt-6 text-gray-200 text-sm sm:text-base">
-                <div className="flex items-center gap-3">
-                  <FaLocationArrow className="shrink-0" />
-                  <p>New York, USA</p>
-                </div>
-                <div className="flex items-center gap-3 mt-3">
-                  <FaMobileAlt className="shrink-0" />
-                  <a
-                    href="tel:+12125550134"
-                    className="hover:text-secondary duration-300"
-                  >
-                    +1 (212) 555-0134
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 mt-3">
-                  <FaEnvelope className="shrink-0" />
-                  <a
-                    href="mailto:support@shopsy.com"
-                    className="hover:text-secondary duration-300 break-all"
-                  >
-                    support@shopsy.com
-                  </a>
-                </div>
-              </div>
+              <h2 className={headingClass}>Demo Information</h2>
+              <p className="mt-6 text-sm text-gray-200 sm:text-base">
+                Orders, shipping, payments, and customer support are not connected.
+              </p>
             </div>
           </div>
         </div>

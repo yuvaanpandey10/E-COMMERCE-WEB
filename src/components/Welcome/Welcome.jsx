@@ -19,10 +19,8 @@ const Welcome = ({ onSignup, onGuest }) => {
     const err = {};
     if (form.name.trim().length < 2) err.name = "Please enter your name";
     if (!/^\S+@\S+\.\S+$/.test(form.email)) err.email = "Enter a valid email";
-    if (form.password.length < 6) err.password = "At least 6 characters";
     setErrors(err);
     if (Object.keys(err).length) return;
-    // NOTE: never store passwords in the browser. Send it to your backend here.
     onSignup({ name: form.name.trim(), email: form.email.trim() });
   };
 
@@ -38,12 +36,12 @@ const Welcome = ({ onSignup, onGuest }) => {
           <div className="mb-6 flex flex-col items-center text-center">
             <img src={Logo} alt="Shopsy logo" className="mb-2 w-14" />
             <h1 id="welcome-title" className="text-2xl font-bold sm:text-3xl">
-              {showForm ? "Create your account" : "Welcome to Shopsy"}
+              {showForm ? "Create a demo profile" : "Welcome to Shopsy"}
             </h1>
             <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
               {showForm
-                ? "Sign up to get offers and track your orders."
-                : "Sign up for exclusive deals, or just look around first."}
+                ? "Your name and email are saved in this browser only. No online account is created."
+                : "Create a local demo profile, or browse without one."}
             </p>
           </div>
 
@@ -54,7 +52,7 @@ const Welcome = ({ onSignup, onGuest }) => {
                 onClick={() => setShowForm(true)}
                 className="rounded-full bg-secondary px-4 py-3 font-semibold text-white duration-200 hover:scale-[1.02]"
               >
-                Sign Up
+                Create Profile
               </button>
               <button
                 type="button"
@@ -77,12 +75,8 @@ const Welcome = ({ onSignup, onGuest }) => {
                 <input name="email" type="email" autoComplete="email" placeholder="Email address" value={form.email} onChange={change} className={inputCls} />
                 {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
               </div>
-              <div>
-                <input name="password" type="password" autoComplete="new-password" placeholder="Password (min 6 characters)" value={form.password} onChange={change} className={inputCls} />
-                {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password}</p>}
-              </div>
               <button type="submit" className="rounded-full bg-secondary px-4 py-3 font-semibold text-white duration-200 hover:scale-[1.02]">
-                Create Account
+                Create Demo Profile
               </button>
               <button type="button" onClick={() => setShowForm(false)} className="text-sm text-gray-500 hover:text-secondary">
                 ← Back

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useParams, useSearchParams } from "react-router";
 import Products2 from "../components/Products/Products2";
 import Subscribe from "../components/Subscribe/Subscribe";
 import NotFound from "./NotFound";
@@ -15,7 +15,9 @@ const titles = {
 
 const Category = () => {
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
   const title = titles[slug];
+  const query = searchParams.get("q") ?? "";
 
   useEffect(() => {
     if (title) document.title = `${title} | Shopsy`;
@@ -33,8 +35,7 @@ const Category = () => {
           <h1 className="mt-2 text-3xl font-bold sm:text-4xl">{title}</h1>
         </div>
       </div>
-      {/* TODO: replace with real product data filtered by `slug` */}
-      <Products2 />
+      <Products2 category={slug} query={query} />
       <Subscribe />
     </>
   );

@@ -19,14 +19,13 @@ const Products = () => {
         {/* Header section */}
         <div className="text-center mb-10 max-w-150 mx-auto">
           <p data-aos="fade-up" className="text-sm text-secondary">
-            Top Selling Products for you
+            Featured Products
           </p>
           <h1 data-aos="fade-up" className="text-3xl font-bold">
-            Most Selling Products
+            Product Examples
           </h1>
           <p data-aos="fade-up" className="text-xs text-gray-400">
-            Discover our most popular products and shop the top-rated items our
-            community loves most
+            Sample products and ratings for this storefront demo.
           </p>
         </div>
         {/* Body section */}

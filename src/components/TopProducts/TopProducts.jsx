@@ -34,14 +34,13 @@ const TopProducts = ({ handleOrderPopup }) => {
         {/* Header section */}
         <div className="text-center mb-24 max-w-150 mx-auto">
           <p data-aos="fade-up" className="text-sm text-secondary">
-            Top Rated Products for you
+            Featured Products
           </p>
           <h1 data-aos="fade-up" className="text-3xl font-bold">
-            Top Rated Products
+            Product Examples
           </h1>
           <p data-aos="fade-up" className="text-xs text-gray-400">
-            Discover our most popular products and shop the top-rated items our
-            community loves most
+            Sample product descriptions and ratings for this storefront demo.
           </p>
         </div>
         {/* Body section */}

@@ -8,11 +8,11 @@ import Footer from "./components/Footer/Footer";
 import Popup from "./components/Popup/Popup";
 import Welcome from "./components/Welcome/Welcome";
 
-import Home from "./pages/Home";
-import TopRated from "./pages/TopRated";
-import Category from "./pages/Category";
-import InfoPage from "./pages/InfoPage";
-import NotFound from "./pages/NotFound";
+import Home from "./Pages/Home";
+import TopRated from "./Pages/TopRated";
+import Category from "./Pages/Category";
+import InfoPage from "./Pages/InfoPage";
+import NotFound from "./Pages/NotFound";
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();

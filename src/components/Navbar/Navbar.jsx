@@ -99,12 +99,17 @@ const Navbar = ({ handleOrderPopup, user, onSignupClick, onLogout }) => {
             <div className="hidden sm:block">{authButton}</div>
 
             <button
-              className="text-2xl sm:hidden"
+              type="button"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/35 text-2xl text-white transition-all duration-200 hover:scale-105 hover:bg-secondary active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary motion-reduce:transition-none sm:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen(!open)}
             >
-              {open ? <FaXmark /> : <FaBars />}
+              {open ? (
+                <FaXmark className="transition-transform duration-200 motion-reduce:transition-none" />
+              ) : (
+                <FaBars className="transition-transform duration-200 motion-reduce:transition-none" />
+              )}
             </button>
           </div>
         </div>
@@ -144,40 +149,55 @@ const Navbar = ({ handleOrderPopup, user, onSignupClick, onLogout }) => {
       </nav>
 
       {/* Mobile menu */}
-      {open && (
-        <nav className="border-t border-gray-200 px-4 py-4 dark:border-gray-700 sm:hidden" aria-label="Mobile">
-          <form onSubmit={submitSearch} className="relative mb-3">
-            <input
-              type="text"
-              placeholder="Search"
-              aria-label="Search products"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-              className="w-full rounded-full border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-secondary focus:outline-none dark:border-gray-500 dark:bg-gray-800 dark:text-white"
-            />
-            <button type="submit" aria-label="Search" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
-              <IoMdSearch />
-            </button>
-          </form>
-          <ul className="flex flex-col">
-            {[...Menu, ...DropdownLinks].map((d) => (
-              <li key={d.link}>
-                <NavLink
-                  to={d.link}
-                  end={d.link === "/"}
-                  onClick={() => setOpen(false)}
-                  className={({ isActive }) =>
-                    `block py-2 hover:text-secondary ${isActive ? "font-semibold text-secondary" : ""}`
-                  }
-                >
-                  {d.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-3">{authButton}</div>
-        </nav>
-      )}
+      <nav
+        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none sm:hidden ${
+          open ? "grid-rows-[1fr] opacity-100" : "pointer-events-none grid-rows-[0fr] opacity-0"
+        }`}
+        aria-label="Mobile"
+        aria-hidden={!open}
+        inert={!open}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="border-t border-gray-200 px-4 py-4 dark:border-gray-700">
+            <form onSubmit={submitSearch} className="relative mb-3">
+              <input
+                type="text"
+                placeholder="Search"
+                aria-label="Search products"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                className="w-full rounded-full border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-secondary focus:outline-none dark:border-gray-500 dark:bg-gray-800 dark:text-white"
+              />
+              <button
+                type="submit"
+                aria-label="Search"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+              >
+                <IoMdSearch />
+              </button>
+            </form>
+            <ul className="flex flex-col">
+              {[...Menu, ...DropdownLinks].map((d) => (
+                <li key={d.link}>
+                  <NavLink
+                    to={d.link}
+                    end={d.link === "/"}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      `-mx-2 block rounded-md px-2 py-2 transition-colors duration-200 hover:bg-secondary/15 hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary motion-reduce:transition-none ${
+                        isActive ? "font-semibold text-secondary" : ""
+                      }`
+                    }
+                  >
+                    {d.name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-3">{authButton}</div>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 };

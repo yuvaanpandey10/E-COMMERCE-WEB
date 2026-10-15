@@ -13,7 +13,7 @@ const TestimonialsData = [
     id: 1,
     name: "Victor Paudel",
     text: "Ordered a printed t-shirt and a pair of goggles. Both arrived in two days and the fabric quality is much better than I expected for the price.",
-    img: Img1, // fixed: was { Img1 }
+    img: Img1,
   },
   {
     id: 2,
@@ -41,27 +41,19 @@ const Testimonials = () => {
     arrows: false,
     infinite: true,
     speed: 600,
+    slidesToShow: 3, // 3 cards at once on desktop
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    cssEase: "ease-in-out", // smoother than linear for card sliding
+    cssEase: "ease-in-out",
     pauseOnHover: true,
     pauseOnFocus: true,
     responsive: [
-      {
-        breakpoint: 10000,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 2,
         },
       },
       {
@@ -91,27 +83,30 @@ const Testimonials = () => {
           </p>
         </div>
         {/* Testimonials cards */}
-        <div>
-          <Slider
-            {...settings}
-            // equal-height cards + space for dots
-            className="pb-10 [&_.slick-track]:flex [&_.slick-slide]:h-auto [&_.slick-slide>div]:h-full"
-          >
+        <div data-aos="zoom-in">
+          <Slider {...settings} className="pb-10">
             {TestimonialsData.map((data) => (
               // outer padding keeps the shadow from being clipped
-              <div key={data.id} className="px-3 py-4 h-full">
-                <div className="flex flex-col items-center text-center gap-4 h-full bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 py-8 px-6 rounded-xl">
+              <div key={data.id} className="px-3 py-4">
+                <div className="flex flex-col items-center text-center gap-4 min-h-75 shadow-lg hover:shadow-xl transition-shadow duration-300 py-8 px-6 rounded-xl dark:bg-gray-800 bg-secondary/10 relative overflow-hidden">
                   <img
                     src={data.img}
                     alt={data.name}
                     className="rounded-full w-20 h-20 object-cover ring-4 ring-primary/20"
                   />
-                  <p className="text-sm text-gray-600 leading-relaxed flex-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-300 leading-relaxed flex-1">
                     “{data.text}”
                   </p>
-                  <h1 className="text-lg font-semibold text-gray-900">
+                  <h1 className="text-xl font-bold text-black/80 dark:text-white">
                     {data.name}
                   </h1>
+                  {/* decorative quote mark */}
+                  <span
+                    aria-hidden="true"
+                    className="text-black/10 dark:text-white/10 text-9xl font-serif absolute top-0 right-4 leading-none select-none pointer-events-none"
+                  >
+                    ”
+                  </span>
                 </div>
               </div>
             ))}

@@ -2,49 +2,41 @@ import Img1 from "../../assets/women/women.png";
 import Img2 from "../../assets/women/women2.jpg";
 import Img3 from "../../assets/women/women3.jpg";
 import Img4 from "../../assets/women/women4.jpg";
-import Img5 from "../../assets/women/women2.jpg";
 import { FaStar } from "react-icons/fa6";
 
 const ProductsData = [
   {
     id: 1,
-    img: Img3,
-    title: "Women Ethnic",
-    rating: 5,
-    author: "white",
-    aosDelay: "0",
-  },
-  {
-    id: 2,
     img: Img2,
     title: "Women Western",
     rating: 4.5,
     author: "Red",
+    aosDelay: "0",
+  },
+  {
+    id: 2,
+    img: Img3,
+    title: "Printed T-shirt",
+    rating: 4.4,
+    author: "Yellow",
     aosDelay: "200",
   },
   {
     id: 3,
     img: Img1,
-    title: "Goggles",
-    rating: 4.7,
-    author: "Brown",
+    title: "Women Ethnic",
+    rating: 5,
+    author: "white",
     aosDelay: "400",
+    isCutout: true,
   },
   {
     id: 4,
     img: Img4,
-    title: "Printed T-shirt",
-    rating: 4.4,
-    author: "Yellow",
-    aosDelay: "800",
-  },
-  {
-    id: 5,
-    img: Img5,
-    title: "Fashion T-shirt",
-    rating: 4.6,
-    author: "Pink",
-    aosDelay: "800",
+    title: "Goggles",
+    rating: 4.7,
+    author: "Brown",
+    aosDelay: "600",
   },
 ];
 
@@ -66,7 +58,7 @@ const Products2 = () => {
           </p>
         </div>
         {/* Body section */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 place-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 place-items-center">
           {/* card section */}
 
           {ProductsData.map((data) => (
@@ -75,13 +67,25 @@ const Products2 = () => {
               data-aos-delay={data.aosDelay}
               key={data.id}
 
-              className="space-y-3"
+              className="w-full max-w-55 space-y-3"
             >
-              <img
-                src={data.img}
-                alt={data.title}
-                className="h-40 w-55 object-cover rounded-md"
-              />
+              <div
+                className={`aspect-square overflow-hidden rounded-md ${
+                  data.isCutout
+                    ? "bg-gradient-to-br from-rose-300 via-pink-400 to-fuchsia-500"
+                    : ""
+                }`}
+              >
+                <img
+                  src={data.img}
+                  alt={data.title}
+                  className={`h-full w-full ${
+                    data.isCutout
+                      ? "object-contain scale-125"
+                      : "object-cover"
+                  }`}
+                />
+              </div>
               <div className="p-4">
                 <h3 className=" font-semibold">{data.title}</h3>
                 <p className="text-sm text-gray-600">{data.color}</p>

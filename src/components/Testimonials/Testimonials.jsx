@@ -1,33 +1,37 @@
 import SliderModule from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Img1 from "../../assets/testimonials/32.jpg";
+import Img2 from "../../assets/testimonials/44.jpg";
+import Img3 from "../../assets/testimonials/75.jpg";
+import Img4 from "../../assets/testimonials/68.jpg";
 
 const Slider = SliderModule.default || SliderModule;
 
 const TestimonialsData = [
   {
     id: 1,
-    name: "Victor",
+    name: "Victor Paudel",
     text: "Ordered a printed t-shirt and a pair of goggles. Both arrived in two days and the fabric quality is much better than I expected for the price.",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    img: Img1, // fixed: was { Img1 }
   },
   {
     id: 2,
     name: "Priya Sharma",
     text: "The ethnic collection is gorgeous. The colours look exactly like the photos, and the fit was perfect on the first try.",
-    img: "https://randomuser.me/api/portraits/women/44.jpg",
+    img: Img2,
   },
   {
     id: 3,
     name: "Daniel Carter",
     text: "Easy to browse, simple checkout, and support answered my size question within minutes. I've already placed a second order.",
-    img: "https://randomuser.me/api/portraits/men/75.jpg",
+    img: Img3,
   },
   {
     id: 4,
     name: "Aisha Rahman",
     text: "Bought a western dress for a weekend trip and got compliments all day. Delivery was fast and the packaging was neat.",
-    img: "https://randomuser.me/api/portraits/women/68.jpg",
+    img: Img4,
   },
 ];
 
@@ -36,11 +40,11 @@ const Testimonials = () => {
     dots: true,
     arrows: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "Linear",
+    autoplaySpeed: 3000,
+    cssEase: "ease-in-out", // smoother than linear for card sliding
     pauseOnHover: true,
     pauseOnFocus: true,
     responsive: [
@@ -88,22 +92,26 @@ const Testimonials = () => {
         </div>
         {/* Testimonials cards */}
         <div>
-          <Slider {...settings}>
+          <Slider
+            {...settings}
+            // equal-height cards + space for dots
+            className="pb-10 [&_.slick-track]:flex [&_.slick-slide]:h-auto [&_.slick-slide>div]:h-full"
+          >
             {TestimonialsData.map((data) => (
-              <div
-                key={data.id}
-                className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl"
-              >
-                <div>
+              // outer padding keeps the shadow from being clipped
+              <div key={data.id} className="px-3 py-4 h-full">
+                <div className="flex flex-col items-center text-center gap-4 h-full bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 py-8 px-6 rounded-xl">
                   <img
                     src={data.img}
-                    alt=""
-                    className="rounded-full w-20 h-20"
-                  ></img>
-                </div>
-                <div>
-                  <p>{data.text}</p>
-                  <h1>{data.name}</h1>
+                    alt={data.name}
+                    className="rounded-full w-20 h-20 object-cover ring-4 ring-primary/20"
+                  />
+                  <p className="text-sm text-gray-600 leading-relaxed flex-1">
+                    “{data.text}”
+                  </p>
+                  <h1 className="text-lg font-semibold text-gray-900">
+                    {data.name}
+                  </h1>
                 </div>
               </div>
             ))}

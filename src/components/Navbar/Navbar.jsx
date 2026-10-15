@@ -17,7 +17,7 @@ const DropdownLinks = [
   { name: "Top Rated", id: 3, link: "/services" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ handleOrderPopup }) => {
   return (
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
       {/* Upper Navbar */}
@@ -42,9 +42,7 @@ const Navbar = () => {
             {/*  order button */}
             <div className="group relative h-8 w-10 shrink-0 transition-all duration-300 hover:w-28">
               <button
-                onClick={() =>
-                  alert("This feature is currently not available yet")
-                }
+                onClick={() => handleOrderPopup()}
                 className="bg-linear-to-r from-secondary to-secondary absolute right-0 top-0 flex h-8 w-full items-center justify-center gap-0 rounded-2xl bg-amber-400 text-white transition-all duration-300 group-hover:gap-2"
               >
                 <span className="inline-block max-w-0 overflow-hidden whitespace-nowrap text-white font-medium opacity-0 transition-all duration-300 group-hover:max-w-12 group-hover:opacity-100">

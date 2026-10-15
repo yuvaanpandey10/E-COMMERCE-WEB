@@ -1,58 +1,45 @@
 import BannerImg from "../../assets/women/women2.jpg";
-import { GrSecure } from "react-icons/gr";
-import { IoFastFood } from "react-icons/io5";
-import { GiFoodTruck } from "react-icons/gi";
+import { FaShieldHalved, FaTruckFast, FaCreditCard, FaGift } from "react-icons/fa6";
 
-const Banner = () => {
-  return (
-    <div className="min-h-137.5 flex justify-center items-center py-12 sm:py-0">
-      <div className="container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-          {/* Image section */}
-          <div className="" data-aos="zoom-in">
-            <img
-              src={BannerImg}
-              alt=""
-              className="max-w-100 h-87.5 w-full mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover"
-            ></img>
-          </div>
-          {/* text details  section */}
-          <div className="flex flex-col justify-center gap-5 sm:pt-0">
-            <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-bold">
-              Winter Sale upto 50% off
-            </h1>
-            <p
-              data-aos="fade-up"
-              className="text-gray-500 text-sm sm:text-base tracking-wide leading-5"
-            >
-              Don't miss out on our biggest discounts of the season. <br />
-              Shop your favorite winter essentials before they are gone!
-            </p>
-            <div className="flex flex-col gap-4">
-              <div data-aos="fade-up" className="flex items-center gap-4">
-                <GrSecure className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-violet-100 dark:bg-violet-400" />
-                <p>Quality Products</p>
+const Features = [
+  { icon: FaShieldHalved, text: "Quality Products", color: "bg-violet-100 dark:bg-violet-400" },
+  { icon: FaTruckFast, text: "Fast Delivery", color: "bg-orange-100 dark:bg-orange-400" },
+  { icon: FaCreditCard, text: "Easy Payment Method", color: "bg-green-100 dark:bg-green-400" },
+  { icon: FaGift, text: "Get Offers", color: "bg-yellow-100 dark:bg-yellow-400" },
+];
+
+const Banner = () => (
+  <section className="flex min-h-137.5 items-center justify-center py-12 sm:py-0">
+    <div className="container">
+      <div className="grid grid-cols-1 items-center gap-8 sm:grid-cols-2">
+        <div data-aos="zoom-in">
+          <img
+            src={BannerImg}
+            alt="Winter sale collection"
+            loading="lazy"
+            className="mx-auto h-87.5 w-full max-w-100 rounded-md object-cover shadow-2xl"
+          />
+        </div>
+        <div className="flex flex-col justify-center gap-5">
+          <h2 data-aos="fade-up" className="text-3xl font-bold sm:text-4xl">
+            Winter Sale up to 50% off
+          </h2>
+          <p data-aos="fade-up" className="text-sm leading-relaxed tracking-wide text-gray-500 sm:text-base">
+            Don't miss out on our biggest discounts of the season. Shop your
+            favorite winter essentials before they are gone!
+          </p>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {Features.map(({ icon: Icon, text, color }) => (
+              <div key={text} data-aos="fade-up" className="flex items-center gap-3">
+                <Icon className={`h-12 w-12 shrink-0 rounded-full p-3.5 shadow-sm ${color}`} />
+                <p>{text}</p>
               </div>
-              <div data-aos="fade-up" className="flex items-center gap-4">
-                <IoFastFood className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-orange-100 dark:bg-orange-400" />
-                <p>Fast Delivery</p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-4">
-              <div data-aos="fade-up" className="flex items-center gap-4">
-                <GrSecure className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
-                <p>Easy Payment Method</p>
-              </div>
-              <div data-aos="fade-up" className="flex items-center gap-4">
-                <GiFoodTruck className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-yellow-100 dark:bg-yellow-400" />
-                <p>Get Offers</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  </section>
+);
 
 export default Banner;

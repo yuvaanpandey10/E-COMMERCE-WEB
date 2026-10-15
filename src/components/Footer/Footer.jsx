@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Banner from "../../assets/website/footer-pattern.jpg";
 import FooterLogo from "../../assets/logo.png";
 import {
@@ -19,17 +20,17 @@ const BannerImg = {
 };
 
 const FooterLinks = [
-  { title: "Home", link: "/#" },
-  { title: "About", link: "/#about" },
-  { title: "Contact", link: "/#contact" },
-  { title: "Blog", link: "/#blog" },
+  { title: "Home", link: "/" },
+  { title: "About", link: "/page/about" },
+  { title: "Contact", link: "/page/contact" },
+  { title: "Blog", link: "/page/blog" },
 ];
 
 const CustomerLinks = [
-  { title: "Shipping & Returns", link: "/#shipping" },
-  { title: "FAQs", link: "/#faq" },
-  { title: "Privacy Policy", link: "/#privacy" },
-  { title: "Terms & Conditions", link: "/#terms" },
+  { title: "Shipping & Returns", link: "/page/shipping" },
+  { title: "FAQs", link: "/page/faq" },
+  { title: "Privacy Policy", link: "/page/privacy" },
+  { title: "Terms & Conditions", link: "/page/terms" },
 ];
 
 // Replace with your real profile URLs
@@ -50,7 +51,7 @@ const LinkColumn = ({ title, links }) => (
           className="cursor-pointer hover:text-secondary hover:translate-x-1 duration-300 text-gray-200"
           key={item.title}
         >
-          <a href={item.link}>{item.title}</a>
+          <Link to={item.link}>{item.title}</Link>
         </li>
       ))}
     </ul>
@@ -67,7 +68,6 @@ const Footer = () => {
         >
           {/* company details */}
           <div className="py-6 px-4 md:col-span-2 lg:col-span-1">
-            {/* cspell: disable-next-line */}
             <h1 className="text-2xl lg:text-3xl font-bold mb-3 flex items-center gap-3">
               <img src={FooterLogo} alt="Shopsy logo" className="max-w-12.5" />
               Shopsy
@@ -130,7 +130,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright: sits under the links, above the skyline */}
+        {/* Copyright */}
         <div className="mx-4 mt-6 border-t border-white/20 pt-4 pb-32 sm:pb-40 lg:pb-44">
           <p className="text-center text-sm text-gray-300">
             © {new Date().getFullYear()} Shopsy. All rights reserved.

@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Img1 from "../../assets/women/women.png";
 import Img2 from "../../assets/women/women2.jpg";
 import Img3 from "../../assets/women/women3.jpg";
@@ -5,39 +6,10 @@ import Img4 from "../../assets/women/women4.jpg";
 import { FaStar } from "react-icons/fa6";
 
 const ProductsData = [
-  {
-    id: 1,
-    img: Img1,
-    title: "Women Ethnic",
-    rating: 5,
-    author: "white",
-    aosDelay: "0",
-    isCutout: true,
-  },
-  {
-    id: 2,
-    img: Img2,
-    title: "Women Western",
-    rating: 4.5,
-    author: "Red",
-    aosDelay: "200",
-  },
-  {
-    id: 3,
-    img: Img4,
-    title: "Goggles",
-    rating: 4.7,
-    author: "Brown",
-    aosDelay: "400",
-  },
-  {
-    id: 4,
-    img: Img3,
-    title: "Printed T-shirt",
-    rating: 4.4,
-    author: "Yellow",
-    aosDelay: "800",
-  },
+  { id: 1, img: Img1, title: "Women Ethnic", rating: 5, author: "white", aosDelay: "0", isCutout: true },
+  { id: 2, img: Img2, title: "Women Western", rating: 4.5, author: "Red", aosDelay: "200" },
+  { id: 3, img: Img4, title: "Goggles", rating: 4.7, author: "Brown", aosDelay: "400" },
+  { id: 4, img: Img3, title: "Printed T-shirt", rating: 4.4, author: "Yellow", aosDelay: "800" },
 ];
 
 const Products = () => {
@@ -59,36 +31,32 @@ const Products = () => {
         </div>
         {/* Body section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 place-items-center">
-          {/* card section */}
-
           {ProductsData.map((data) => (
             <div
               data-aos="fade-up"
               data-aos-delay={data.aosDelay}
               key={data.id}
-
               className="w-full max-w-55 space-y-3"
             >
               <div
                 className={`aspect-square overflow-hidden rounded-md ${
                   data.isCutout
-                    ? "bg-gradient-to-br from-rose-300 via-pink-400 to-fuchsia-500"
+                    ? "bg-linear-to-br from-rose-300 via-pink-400 to-fuchsia-500"
                     : ""
                 }`}
               >
                 <img
                   src={data.img}
                   alt={data.title}
+                  loading="lazy"
                   className={`h-full w-full ${
-                    data.isCutout
-                      ? "object-contain scale-125"
-                      : "object-cover"
+                    data.isCutout ? "object-contain scale-125" : "object-cover"
                   }`}
                 />
               </div>
               <div className="p-4">
-                <h3 className=" font-semibold">{data.title}</h3>
-                <p className="text-sm text-gray-600">{data.color}</p>
+                <h3 className="font-semibold">{data.title}</h3>
+                <p className="text-sm text-gray-600">{data.author}</p>
                 <div className="flex items-center gap-1">
                   <FaStar className="text-yellow-400" />
                   <span className="text-gray-600 ml-1">{data.rating}</span>
@@ -98,9 +66,12 @@ const Products = () => {
           ))}
           {/* view all button */}
           <div className="col-span-full flex justify-center">
-            <button className="text-center mt-10 cursor-pointer bg-secondary text-white py-1 px-5 rounded:md">
+            <Link
+              to="/category/all"
+              className="mt-10 rounded-md bg-secondary px-5 py-1 text-center text-white duration-200 hover:scale-105"
+            >
               View All Products
-            </button>
+            </Link>
           </div>
         </div>
       </div>

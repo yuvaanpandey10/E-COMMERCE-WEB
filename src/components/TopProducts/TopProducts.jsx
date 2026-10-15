@@ -32,7 +32,7 @@ const TopProducts = ({ handleOrderPopup }) => {
     <div>
       <div className="container">
         {/* Header section */}
-        <div className="text-left mb-24">
+        <div className="text-center mb-24 max-w-150 mx-auto">
           <p data-aos="fade-up" className="text-sm text-secondary">
             Top Rated Products for you
           </p>
@@ -57,17 +57,20 @@ const TopProducts = ({ handleOrderPopup }) => {
                   <img
                     src={data.img}
                     alt={data.title}
+                    loading="lazy"
                     className="max-w-35 block mx-auto transform -translate-y-20 group-hover:scale-105 duration-300 drop-shadow-md"
                   />
                 </div>
                 {/* Details section */}
                 <div className="p-4 text-center">
-                  {/* Star rating */}
+                  {/* Star rating: 4 yellow, 1 grey */}
                   <div className="w-full flex items-center justify-center gap-1">
-                    <FaStar className="text-yellow-500"></FaStar>
-                    <FaStar className="text-yellow-500"></FaStar>
-                    <FaStar className="text-yellow-500"></FaStar>
-                    <FaStar className="text-yellow-500"></FaStar>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <FaStar
+                        key={n}
+                        className={n <= 4 ? "text-yellow-500" : "text-gray-300"}
+                      />
+                    ))}
                   </div>
                   <h2 className="text-xl font-bold">{data.title}</h2>
                   <p className="text-gray-500 group-hover:text-white duration-300 text-sm line-clamp-2">

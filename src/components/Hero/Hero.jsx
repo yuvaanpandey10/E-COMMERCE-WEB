@@ -3,7 +3,7 @@ import Image2 from "../../assets/hero/sale.png";
 import Image3 from "../../assets/hero/shopping.png";
 import sliderModule from "react-slick";
 
-const Slider = sliderModule.default;
+const Slider = sliderModule.default || sliderModule;
 
 const ImageList = [
   {
@@ -18,7 +18,7 @@ const ImageList = [
     img: Image2,
     title: "30% off on all women's Wear",
     description:
-      "Don't miss out on our flash sale! Get up to 70% off on selected items for a limited time only.",
+      "Don't miss out on our flash sale! Get 30% off on selected women's wear for a limited time only.",
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const Hero = ({ handleOrderPopup }) => {
   };
 
   return (
-    <div className="relative isolate overflow-hidden min-h-137.5 sm:min-h-162.5 bg-gray-100 flex items-center justify-center  dark:bg-gray-950 dark:text-white duration-200">
+    <div className="relative isolate overflow-hidden min-h-137.5 sm:min-h-162.5 bg-gray-100 flex items-center justify-center dark:bg-gray-950 dark:text-white duration-200">
       {/* Background pattern */}
       <div className="w-175 h-175 bg-secondary/40 absolute -top-1/2 right-0 rounded-3xl rotate-45 -z-9"></div>
       {/* hero section */}
@@ -60,7 +60,7 @@ const Hero = ({ handleOrderPopup }) => {
                     data-aos="fade-up"
                     data-aos-once="true"
                     data-aos-duration="500"
-                    className="text-5xl sm:text-4.4xl font-bold my-4 lg:text-7xl select-none"
+                    className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold my-4 select-none"
                   >
                     {data.title}
                   </h1>
@@ -72,15 +72,17 @@ const Hero = ({ handleOrderPopup }) => {
                   >
                     {data.description}
                   </p>
-                  <div data-aos="fade-up"
+                  <div
+                    data-aos="fade-up"
                     data-aos-once="true"
-                    data-aos-duration="300">
-                  <button
-                    onClick={handleOrderPopup}
-                    className="w-fit mx-auto sm:mx-0 bg-linear-to-r from-secondary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
+                    data-aos-duration="300"
                   >
-                    Order Now
-                  </button>
+                    <button
+                      onClick={handleOrderPopup}
+                      className="w-fit mx-auto sm:mx-0 bg-linear-to-r from-secondary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
+                    >
+                      Order Now
+                    </button>
                   </div>
                 </div>
                 {/* Image section */}
@@ -92,7 +94,7 @@ const Hero = ({ handleOrderPopup }) => {
                   >
                     <img
                       src={data.img}
-                      alt="Hero"
+                      alt={data.title}
                       className="relative z-10 w-64 h-64 sm:w-90 sm:h-90 max-w-full object-contain mx-auto"
                       style={
                         data.id === 1 || data.id === 3
